@@ -12,9 +12,13 @@ export class MainService {
 
   constructor(private http: HttpClient) {}
 
-  getContacts(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
+
+  getContacts(): Observable<any>{
+    return this.http.get('/api/assessment/contacts')
   }
+
+
+
 
   // GET request
   getPosts(): Observable<any> {

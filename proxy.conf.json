@@ -1,0 +1,8 @@
+{
+    "/api": {
+        "target": "https://sa-tech-assessment.replit.app",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    }
+}
