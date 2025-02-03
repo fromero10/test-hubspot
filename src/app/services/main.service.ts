@@ -24,6 +24,10 @@ export class MainService {
     return this.http.get(`http://localhost:3000/hubspot/contacts`);
   }
 
+  postHubSpotContacts(data:any): Observable<any> {
+    return this.http.post(`http://localhost:3000/hubspot/create-contact`,data);
+  }
+
   getContacts(): Observable<any>{
     return this.http.get('/api/assessment/contacts')
   }
