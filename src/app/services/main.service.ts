@@ -25,7 +25,10 @@ export class MainService {
   }
 
   postHubSpotContacts(data:any): Observable<any> {
-    return this.http.post(`http://localhost:3000/hubspot/create-contact`,data);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    return this.http.post('http://localhost:3000/hubspot/create-contact', data, { headers });
   }
 
   getContacts(): Observable<any>{
