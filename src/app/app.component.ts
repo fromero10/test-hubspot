@@ -21,8 +21,5 @@ export class AppComponent {
       console.log(data);
       this.posts = data;
     });
-    this.mainService.getHubSpotContacts().subscribe(data2 => {
-      console.log(data2)
-      })
     }
 }
