@@ -1,15 +1,24 @@
 <div class="container mt-5">
-    <h1 class="mb-4">Featured Companies</h1>
-    <div class="row g-4">
-      <div class="col-md-4" *ngFor="let company of companies">
-        <div class="card h-100 shadow" (click)="goToContacts(company)">
-          <img [src]="company.logo" class="card-img-top p-3" alt="Company logo" style="height: 150px; object-fit: contain;">
-          <div class="card-body">
-            <h5 class="card-title">{{company.name}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{company.industry}}</h6>
-            <p class="card-text">{{company.description}}</p>
-          </div>
+  <!-- Add Contact Button -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Featured Companies</h1>
+    <button class="btn btn-primary" routerLink="/add-user">
+      <i class="bi bi-plus-lg"></i> Add Contact
+    </button>
+  </div>
+
+  <!-- Company Cards -->
+  <div class="row g-4">
+    <div class="col-md-4" *ngFor="let company of companies">
+      <div class="card h-100 shadow" (click)="goToContacts(company)">
+        <img [src]="company.logo" class="card-img-top p-3" alt="Company logo"
+          style="height: 150px; object-fit: contain;">
+        <div class="card-body">
+          <h5 class="card-title">{{company.name}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{company.industry}}</h6>
+          <p class="card-text">{{company.description}}</p>
         </div>
       </div>
     </div>
   </div>
+</div>

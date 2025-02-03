@@ -4,9 +4,9 @@
     <div class="list-group-item" *ngFor="let contact of contacts">
       <div class="d-flex justify-content-between align-items-center">
         <div>
-          <h5>{{contact.properties.firstName}} {{contact.properties.lastName}}</h5>
+          <h5>{{contact.properties.firstname}} {{contact.properties.lastname}}</h5>
           <p class="mb-1">{{contact.properties.email}}</p>
-          <small>Created: {{contact.createdAt | date}}</small>
+          <small>Created: {{contact.createdAt }}</small>
         </div>
         <button class="btn btn-primary" (click)="sendToHubSpot(contact)" [disabled]="isLoading">
           <i *ngIf="!isLoading" class="bi bi-cloud-upload"></i>

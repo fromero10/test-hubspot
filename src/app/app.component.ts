@@ -7,7 +7,7 @@ import { MainService } from './services/main.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'test';
+  title = 'Hubspot test';
   posts: any[] = [];
   constructor(private mainService: MainService) {
     //this.getPosts();

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { error } from 'console';
 import { MainService } from 'src/app/services/main.service';
 import Swal from 'sweetalert2';
 
@@ -60,6 +61,7 @@ export class ContactsComponent implements OnInit {
     }
     this.mainService.postHubSpotContacts(object).subscribe(data => {
       console.log(data);
+      this.isLoading = false;
       if(data.success === true) {
         Swal.fire({
           title: 'Success',
@@ -75,7 +77,16 @@ export class ContactsComponent implements OnInit {
           confirmButtonText: 'Ok'
         });
       }
-    })
+    }, error => {
+      this.isLoading = false;
+      Swal.fire({
+        title: 'Error',
+        text: 'Error connecting to the server',
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      });
+      console.log(error);
+    });
   }
 
   categorizeContacts(contacts: any) {
