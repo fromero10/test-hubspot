@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -10,14 +10,23 @@ export class MainService {
   //private baseUrl = 'https://jsonplaceholder.typicode.com'; // Replace with your API URL
   private baseUrl = 'https://sa-tech-assessment.replit.app/api/assessment/contacts'; // Replace with your API URL
 
+  private customApiBaseUrl = '/api';
+  private hubSpotBaseUrl = '/hubspot';
   constructor(private http: HttpClient) {}
 
+
+  getCustomApiData(): Observable<any> {
+    return this.http.get(`${this.customApiBaseUrl}/assessment/contacts`);
+  }
+
+  // HubSpot API call
+  getHubSpotContacts(): Observable<any> {
+    return this.http.get(`http://localhost:3000/hubspot/contacts`);
+  }
 
   getContacts(): Observable<any>{
     return this.http.get('/api/assessment/contacts')
   }
-
-
 
 
   // GET request
