@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MainService } from 'src/app/services/main.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contacts',
@@ -13,6 +14,7 @@ export class ContactsComponent implements OnInit {
   company1: Array<any> = [];
   company2: Array<any> = [];
   company3: Array<any> = [];
+  isLoading = false;
   company: any;
   companies = [{
     name: "Company 1",
@@ -51,12 +53,28 @@ export class ContactsComponent implements OnInit {
   }
 
   sendToHubSpot(contact: any) {
+    this.isLoading = true;
     let object = {
       contact,
       company: this.company
     }
     this.mainService.postHubSpotContacts(object).subscribe(data => {
       console.log(data);
+      if(data.success === true) {
+        Swal.fire({
+          title: 'Success',
+          text: 'Contact added to HubSpot',
+          icon: 'success',
+          confirmButtonText: 'Ok'
+        });
+      } else {
+        Swal.fire({
+          title: 'Error',
+          text: 'Contact not added to HubSpot',
+          icon: 'error',
+          confirmButtonText: 'Ok'
+        });
+      }
     })
   }
 
