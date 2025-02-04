@@ -6,22 +6,16 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+# Node
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The node version used for this project to run smoothly was version v16.20.2
 
-## Build
+## Functionalities
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+The main page is displaying a list of three companies (that are hardcoded into the front-end)
+Inside of the view of each company, you can see a list of contacts, by criteria, located on the mock API. Contacts in company 1 are contacts created less than three days ago, contacts in company 2 are contacts created between 4 and 7 days ago and contacts in company 3 are contacts created before that.
 
-## Running unit tests
+On the Company view you can see the list of contacts associated to the view and have the chance to send the contacts to HubSpot. This is going to connect to a backend hosted locally in node.js and execute the functions described on the README, but what the function does, is create the company in HubSpot, create the contact, create a deal, and associate all three of them together
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
