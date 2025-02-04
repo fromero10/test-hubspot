@@ -15,22 +15,25 @@ export class AddUserComponent implements OnInit {
     lastname: '',
     email: ''
   };
+  isLoading = false;
 
   constructor(private mainService: MainService) { }
 
   onSubmit() {
     // You can replace this with an actual service call to send the data to your backend
     console.log('Submitted contact data:', this.contact);
+    this.isLoading = true;
     let dataBase = {
       properties: this.contact
     }
     this.mainService.addContactToDB(dataBase).subscribe(data => { 
       console.log(data);
+      this.isLoading = false;
       if(data.success){
         Swal.fire({
           icon: 'success',
           title: 'Contact Created!',
-          text: 'Your contact has been successfully created!',
+          text: `Your contact ${data.response.properties.firstname} has been successfully created with a status of ${data.response.properties.lifecyclestage} and an internal ID of ${data.response.properties.hs_object_id}!`,
         });
 
       } else{
@@ -44,6 +47,8 @@ export class AddUserComponent implements OnInit {
       // Reset the form after submission
       this.contact = { firstname: '', lastname: '', email: '' };
     }, error => {
+      this.isLoading = false;
+      console.log(error);
       Swal.fire({
         icon: 'error',
         title: 'Error!',
