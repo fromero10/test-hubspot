@@ -26,7 +26,7 @@ export class AddUserComponent implements OnInit {
     let dataBase = {
       properties: this.contact
     }
-    this.mainService.addContactToDB(dataBase).subscribe(data => { 
+    this.mainService.addContactToExternalDB(dataBase).subscribe(data => { 
       console.log(data);
       this.isLoading = false;
       if(data.success){

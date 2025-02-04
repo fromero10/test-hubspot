@@ -38,6 +38,13 @@ export class MainService {
     return this.http.post('http://localhost:3000/api/add-contact-to-db', data, { headers });
   }
 
+  addContactToExternalDB(data:any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    return this.http.post('http://localhost:3000/api/add-contact-to-external-db', data, { headers });
+  }
+
   getContacts(): Observable<any>{
     return this.http.get('/api/assessment/contacts')
   }
